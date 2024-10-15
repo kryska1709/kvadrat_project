@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.kvadrat" />
-                  <option name="mobileSdkAppId" value="1:860486932474:android:9e206eb88f38f5611b7643" />
-                  <option name="projectId" value="kvadrat-5cd7f" />
-                  <option name="projectNumber" value="860486932474" />
+                  <option name="mobileSdkAppId" value="1:927303591805:android:db3631327f42323d4d4e14" />
+                  <option name="projectId" value="kvadratregauth" />
+                  <option name="projectNumber" value="927303591805" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

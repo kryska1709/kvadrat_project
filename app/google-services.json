@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "860486932474",
-    "project_id": "kvadrat-5cd7f",
-    "storage_bucket": "kvadrat-5cd7f.appspot.com"
+    "project_number": "927303591805",
+    "project_id": "kvadratregauth",
+    "storage_bucket": "kvadratregauth.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:860486932474:android:9e206eb88f38f5611b7643",
+        "mobilesdk_app_id": "1:927303591805:android:db3631327f42323d4d4e14",
         "android_client_info": {
           "package_name": "com.example.kvadrat"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "927303591805-oaulhf8mlijraqavq11ju2hblrnahebt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDQdr4ch1yUbnjVGKYLmzYmeHtDORblQ3s"
+          "current_key": "AIzaSyCa88U5Zxru149bHXiMwubORmEhx2u6h9g"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927303591805-oaulhf8mlijraqavq11ju2hblrnahebt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
