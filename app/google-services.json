@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "860486932474",
+    "project_id": "kvadrat-5cd7f",
+    "storage_bucket": "kvadrat-5cd7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860486932474:android:9e206eb88f38f5611b7643",
+        "android_client_info": {
+          "package_name": "com.example.kvadrat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQdr4ch1yUbnjVGKYLmzYmeHtDORblQ3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
