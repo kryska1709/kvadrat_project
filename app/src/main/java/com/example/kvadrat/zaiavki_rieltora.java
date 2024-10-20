@@ -1,24 +1,59 @@
 package com.example.kvadrat;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class zaiavki_rieltora extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private ZaiavkiAdapter adapter;
+    private List<Zaiavka> messages;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_zaiavki_rieltora);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        recyclerView = findViewById(R.id.rec);
+        messages = new ArrayList<>();
+        adapter = new ZaiavkiAdapter(messages, this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("messages");
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                messages.clear();  // очищаем список перед обновлением
+                for (DataSnapshot messageSnapshot : snapshot.getChildren()) {
+                    String userEmail = messageSnapshot.child("email").getValue(String.class);
+                    String messageText = messageSnapshot.child("message").getValue(String.class);
+                    messages.add(new Zaiavka(messageText, userEmail, messageSnapshot.getKey())); // используем ключ как id
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(zaiavki_rieltora.this, "Ошибка получения данных", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

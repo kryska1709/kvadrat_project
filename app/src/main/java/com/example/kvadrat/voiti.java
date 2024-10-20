@@ -47,19 +47,35 @@ public class voiti extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        Intent intent = new Intent(voiti.this, osnovnoiEkran.class);
+                                        Intent intent;
+
+                                        // Сравниваем строки с помощью .equals()
+                                        if ((email.equals("mariapigina6162@gmail.com") && password.equals("17082006")) ||
+                                                (email.equals("ternovaver4321@gmail.com") && password.equals("82612499")) ||
+                                                (email.equals("gorunovigor6211@gmail.com") && password.equals("76239014")) ||
+                                                (email.equals("portidovroman7711@gmail.com") && password.equals("83940162"))) {
+                                            intent = new Intent(voiti.this, zaiavki_rieltora.class);
+                                        } else {
+                                            intent = new Intent(voiti.this, osnovnoiEkran.class);
+                                        }
+
                                         startActivity(intent);
-                                        finish();
+                                        finish(); // Завершаем текущую активность
                                     } else {
-                                        Toast.makeText(voiti.this, "Ошибка ввода данных", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(voiti.this, "Ошибка ввода данных: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
+
                 } catch (Exception e) {
                     Toast.makeText(voiti.this, "Ошибка ввода данных", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+    public  void onClick(View view){
+        Intent intent = new Intent(voiti.this, registr.class);
+        startActivity(intent);
     }
 }
 

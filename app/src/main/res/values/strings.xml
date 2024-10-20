@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">kvadrat</string>
+    <string name="email_hint">Введите Ваш email</string>
+    <string name="message_hint">Введите Ваше сообщение</string>
+    <string name="send">Отправить</string>
+    <string name="cancel">Отмена</string>
+
 </resources>

@@ -57,9 +57,4 @@ public class registr extends AppCompatActivity {
             }
         });
     }
-
-    public  void onClick(View view){
-        Intent intent = new Intent(registr.this,voiti.class);
-        startActivity(intent);
-    }
 }

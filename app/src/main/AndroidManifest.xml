@@ -5,25 +5,28 @@
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:enableOnBackInvokedCallback="true"
-    tools:targetApi="31">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:targetApi="31">
         <activity
-            android:name=".PolsOrRiel"
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".voitiRiel"
+            android:name=".dialog_zaiavki"
+            android:exported="false" />
+        <activity
+            android:name=".razmetil"
+            android:exported="false" />
+        <activity
+            android:name=".profil"
             android:exported="false" />
         <activity
             android:name=".voiti"
-            android:exported="false" />
-        <activity
-            android:name=".regRiel"
             android:exported="false" />
         <activity
             android:name=".registr"

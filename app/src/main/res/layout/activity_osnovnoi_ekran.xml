@@ -7,37 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".osnovnoiEkran">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="389dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FF0202"
+        android:onClick="onClick1"
+        android:text="оставить заявку"
+        android:textColor="#F0E7E7"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="544dp"
-        android:layout_height="1037dp"
+        android:layout_width="498dp"
+        android:layout_height="942dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316"
-        app:srcCompat="@drawable/yikftftddmty" />
+        app:layout_constraintVertical_bias="0.843"
+        app:srcCompat="@drawable/_fotor_20241015221046" />
 
-
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="125dp"
-        android:layout_height="62dp"
-        android:onClick="onClick3"
-        android:text="профиль"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#F2E9E9"
-        android:textStyle="bold|italic"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="381dp"
+        android:layout_height="568dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.989"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintVertical_bias="0.607">
 
-
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
