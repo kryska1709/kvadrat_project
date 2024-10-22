@@ -93,7 +93,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             ploshad = itemView.findViewById(R.id.ploshad);
             price = itemView.findViewById(R.id.price);
             adress = itemView.findViewById(R.id.adress);
-            phone = itemView.findViewById(R.id.editTextPhone);
+            phone = itemView.findViewById(R.id.phone);
         }
     }
 }
