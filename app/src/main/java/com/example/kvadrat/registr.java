@@ -35,20 +35,28 @@ public class registr extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = editTextEmail.getText().toString();
-                String password = editTextPassword.getText().toString();
+                String email = editTextEmail.getText().toString().trim();
+                String password = editTextPassword.getText().toString().trim();
+
+                // Проверка на пустые поля
+                if (email.isEmpty()) {
+                    Toast.makeText(registr.this, "Введите электронную почту", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    Toast.makeText(registr.this, "Введите пароль", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(registr.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                // Ошибка регистрации, отображение ошибки
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Intent intent = new Intent(registr.this, osnovnoiEkran.class);
                                     startActivity(intent);
                                     finish();
-                                    // Регистрация успешна, переход к следующему экрану
                                 } else {
                                     Toast.makeText(registr.this, "Ошибка регистрации", Toast.LENGTH_SHORT).show();
                                 }
