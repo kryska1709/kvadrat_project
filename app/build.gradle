@@ -43,6 +43,7 @@ dependencies {
     implementation libs.constraintlayout
     implementation libs.material
     implementation libs.core.ktx
+    testImplementation libs.junit.junit
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
 
