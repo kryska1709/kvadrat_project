@@ -43,6 +43,10 @@ public class zaiavki_rieltora extends AppCompatActivity {
         adapter = new ZaiavkiAdapter(messages, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        // Инициализация базы данных
+        databaseReference = FirebaseDatabase.getInstance().getReference("messages");
+
         Button clearButton = findViewById(R.id.clear);
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,9 +55,8 @@ public class zaiavki_rieltora extends AppCompatActivity {
             }
         });
 
-
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("messages");
-        database.addValueEventListener(new ValueEventListener() {
+        // Слушатель для получения данных
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messages.clear();  // очищаем список перед обновлением
@@ -70,22 +73,18 @@ public class zaiavki_rieltora extends AppCompatActivity {
                 Toast.makeText(zaiavki_rieltora.this, "Ошибка получения данных", Toast.LENGTH_SHORT).show();
             }
         });
-        databaseReference = FirebaseDatabase.getInstance().getReference("messages");
     }
+
     public void clearTable() {
         databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Log.d("Firebase", "Table cleared successfully.");
+                    Toast.makeText(zaiavki_rieltora.this, "Удаление прошло успешно", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.e("Firebase", "Failed to clear table: " + task.getException().getMessage());
                 }
             }
         });
     }
-
-
-
-
 }
