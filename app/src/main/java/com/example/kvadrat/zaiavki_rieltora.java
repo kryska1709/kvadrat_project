@@ -47,14 +47,6 @@ public class zaiavki_rieltora extends AppCompatActivity {
         // Инициализация базы данных
         databaseReference = FirebaseDatabase.getInstance().getReference("messages");
 
-        Button clearButton = findViewById(R.id.clear);
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearTable();
-            }
-        });
-
         // Слушатель для получения данных
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -71,19 +63,6 @@ public class zaiavki_rieltora extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(zaiavki_rieltora.this, "Ошибка получения данных", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    public void clearTable() {
-        databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(zaiavki_rieltora.this, "Удаление прошло успешно", Toast.LENGTH_SHORT).show();
-                } else {
-                    Log.e("Firebase", "Failed to clear table: " + task.getException().getMessage());
-                }
             }
         });
     }
